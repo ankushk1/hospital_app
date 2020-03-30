@@ -12,6 +12,6 @@ NOTE - FOR EVERY OPERATION YOU NEED THE TOKEN FOR VALIDATION
 
 5.To get list of all patients. GET- http://localhost:8000/patients/getpatients.
 
-6.To create report of patient with specific id . POST-http://localhost:8000/patients/:id/create_report.
+6.To create report of patient with specific id add doctor, status and date . POST-http://localhost:8000/patients/:id/create_report.
 
 7. to get all reports of patient with id. GET- http://localhost:8000/patients/:id/all_reports.
