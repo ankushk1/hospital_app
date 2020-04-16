@@ -10,4 +10,4 @@
 
 5.To create report of patient with patient and doctors id. POST-http://localhost:8000/patients/create_report.
 
-7. to get all reports of patient. GET- http://localhost:8000/patients/:id/all_reports.
+6. to get all reports of patient. GET- http://localhost:8000/patients/:id/all_reports.
