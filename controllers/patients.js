@@ -1,26 +1,35 @@
-const patient = require('../models/patients');
+const Patient = require('../models/patients');
 
 module.exports = {
-    
-    //create user
-    create: function (req, res, next) {
-        patient.findByIdAndUpdate(req.params.id,{
-            doctor:req.body.name,
-            status:req.body.number,
-            date:req.body.date,
-        } ,function (err, result) {
-            if (err) {
-                next(err);
-            } else {
-                res.json({
-                    status: "Success",
-                    message: "report created",
+
+    //register patient
+    registerPatient: async function (req, res) {
+        try {
+            let patient = await Patient.findOne({
+                number: req.body.number
+            });
+            if (patient) {
+                return res.json(200, {
                     data: {
-                        report: result
-                    }
+                        patient: patient
+                    },
+                    message: "Patient already registered"
                 });
             }
-        });
-    },
+            patient = await Patient.create({
+                number: req.body.number
+            });
+            return res.json(200, {
+                data: {
+                    patient: patient
+                },
+                message: "Successfully Created!"
+            });
+        } catch (error) {
+            return res.json(500, {
+                message: "Internal Server Error" + error
+            });
+        }
+    }
 
 }

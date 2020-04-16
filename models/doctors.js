@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const Schema = mongoose.Schema;
+//doctor schema
 const DoctorSchema = new Schema({
     name: {
         type: String,

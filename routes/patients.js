@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const ApiController = require('../controllers/patients');
-const rpcontroller=require('../controllers/register_patients');
+const patientController = require('../controllers/patients');
+const reportsController = require('../controllers/reports');
 
-router.post('/register_patient', rpcontroller.register);
-router.get('/getpatients',rpcontroller.getAll);
-router.post('/:id/create_report', ApiController.create);
-router.get('/:id/all_reports',ApiController.getAllstatus);
+
+//patient and report routes
+router.post('/register_patient', patientController.registerPatient);
+router.post('/create_report', reportsController.createReport);
+router.get('/:id/all_reports', reportsController.getAll);
 
 //export router
 module.exports = router;

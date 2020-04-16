@@ -7,7 +7,9 @@ const jwt = require('jsonwebtoken');
 const app = express();
 
 app.set('secretKey', 'api');
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({
+    extended: false 
+}));
 app.use('/doctors', doctors);
 app.use('/patients', validateUser, patients);
 
@@ -35,6 +37,6 @@ app.get('/', function (req, res) {
 });
 
 
-app.listen(8000, function() {
+app.listen(8000, function () {
     console.log('Node server listening on port 8000');
 });
